@@ -295,18 +295,18 @@ else
 
 |  模型大类   |       具体模型        |   输入大小    | 数据类型 | 帧率(4核) | 帧率(8核) |
 | :---------: | :-------------------: | :-----------: | :------: | :-------: | :-------: |
-|   resnet    |       resnet50        | [1,3,224,224] |   int8   |   131.9   |           |
+|   resnet    |       resnet50        | [1,3,224,224] |   int8   |   108.7   |           |
 |   arcface   | arcface_mobilefacenet | [1,3,112,112] |   int8   |    49     |           |
-| yolov5-face |     yolov5n-face      | [1,3,640,640] |   int8   |   28.8    |           |
-|   yolov8    |        yolov8n        | [1,3,640,640] |   int8   |   55.6    |           |
+| yolov5-face |     yolov5n-face      | [1,3,640,640] |   int8   |   23.0    |           |
+|   yolov8    |        yolov8n        | [1,3,640,640] |   int8   |   37.9    |           |
 |             |        yolov8s        | [1,3,640,640] |   int8   |   27.5    |           |
-|             |        yolov8m        | [1,3,640,640] |   int8   |   19.6    |           |
-| yolov8-pose |     yolov8n-pose      | [1,3,640,640] |   int8   |   45.3    |           |
-|             |     yolov8s-pose      | [1,3,640,640] |   int8   |   30.8    |           |
-|             |     yolov8m-pose      | [1,3,640,640] |   int8   |   17.9    |           |
-| yolov8-seg  |      yolov8n-seg      | [1,3,640,640] |   int8   |   24.1    |           |
-|             |      yolov8s-seg      | [1,3,640,640] |   int8   |   13.9    |           |
-|             |      yolov8m-seg      | [1,3,640,640] |   int8   |    8.5    |           |
+|             |        yolov8m        | [1,3,640,640] |   int8   |   16.8    |           |
+| yolov8-pose |     yolov8n-pose      | [1,3,640,640] |   int8   |   39.8    |           |
+|             |     yolov8s-pose      | [1,3,640,640] |   int8   |   28.5    |           |
+|             |     yolov8m-pose      | [1,3,640,640] |   int8   |   17.2    |           |
+| yolov8-seg  |      yolov8n-seg      | [1,3,640,640] |   int8   |    4.7    |           |
+|             |      yolov8s-seg      | [1,3,640,640] |   int8   |    3.5    |           |
+|             |      yolov8m-seg      | [1,3,640,640] |   int8   |    3.4    |           |
 |   yolo11    |        yolo11n        | [1,3,640,640] |   int8   |    9.5    |           |
 |             |        yolo11s        | [1,3,640,640] |   int8   |    7.1    |           |
 |             |        yolo11m        | [1,3,640,640] |   int8   |    4.0    |           |
@@ -324,6 +324,8 @@ cmake .. -DBUILD_TESTS=ON
 ```shell
 ./tests/benchmarks/vision_infer_benchmark --config ../examples/yolov8/config/yolov8.yaml --image /path/to/image.jpg
 ```
+
+> 以上命令默认使用 yolov8n 模型；如需指定其他模型，可使用 `--model-path` 参数，例如：`--model-path /path/to/yolov8s.onnx`。
 
 **不包含前后处理：**
 
