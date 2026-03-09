@@ -313,13 +313,7 @@ else
 
 **复现方法**：
 
-参照 3.1 节完成 C++ 构建，并在 cmake 时启用 `-DBUILD_TESTS=ON`：
-
-```shell
-cmake .. -DBUILD_TESTS=ON
-```
-
-执行测试（以 yolov8 为例）：
+参照 3.1 节完成 C++ 构建，可执行下面命令测试性能（以 yolov8 为例）：
 
 ```shell
 ./tests/benchmarks/vision_infer_benchmark --config ../examples/yolov8/config/yolov8.yaml --image /path/to/image.jpg
@@ -351,10 +345,10 @@ cmake .. -DBUILD_TESTS=ON
 
 **复现方法**：
 
-参照 2.1 节安装 C++ 依赖后，使用 onnxruntime_perf_test 复现（以 yolov8n 为例）：
+参照 2.1 节安装 C++ 依赖后，再按照2.2下载模型，之后可使用 onnxruntime_perf_test 复现（以 yolov8n 为例）：
 
 ```shell
-onnxruntime_perf_test /path/to/yolov8n.q.onnx -e spacemit -r 100 -x 1 -S 1 -s -I -c 1 -i "SPACEMIT_EP_INTRA_THREAD_NUM|4"
+onnxruntime_perf_test ~/.cache/models/vision/yolov8/yolov8n.q.onnx  -e spacemit -r 100 -x 1 -S 1 -s -I -c 1 -i "SPACEMIT_EP_INTRA_THREAD_NUM|4"
 ```
 
 详细参考：https://www.spacemit.com/community/document/info?lang=zh&nodepath=ai/compute_stack/ai_compute_stack/onnxruntime.md 中 onnxruntime_perf_test 章节。
