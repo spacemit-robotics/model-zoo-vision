@@ -43,6 +43,8 @@ add_model_example(emotion emotion)
 add_model_example(bytetrack bytetrack)
 add_model_example(ocsort ocsort)
 
+add_definitions(-D__fp16=_Float16)
+
 # Install examples (only install targets that were actually created)
 if(EXAMPLE_TARGETS)
     install(TARGETS ${EXAMPLE_TARGETS} DESTINATION bin)

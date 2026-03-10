@@ -152,6 +152,8 @@ target_include_directories(vision PRIVATE
     ${yaml-cpp_INCLUDE_DIR}
 )
 
+add_definitions(-D__fp16=_Float16)
+
 # Public API: only vision_service.h is exposed; internal headers are not installed.
 target_include_directories(vision PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
